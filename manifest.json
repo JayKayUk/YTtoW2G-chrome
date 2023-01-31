@@ -39,6 +39,6 @@
   "permissions": ["tabs", "scripting"],
   "version": "1.0.0",
   "web_accessible_resources": [
-    { "resources": ["icons/"], "matches": ["https://www.youtube.com/*"] }
+    { "resources": ["/icons/*"], "matches": ["https://www.youtube.com/*"] }
   ]
 }

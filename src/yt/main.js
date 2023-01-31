@@ -149,7 +149,7 @@ function addButtonElement_videoPage(buttonId) {
   const dotsButton = document.querySelector(
     "ytd-menu-renderer.ytd-watch-metadata > yt-button-shape:nth-child(4)"
   );
-
+  // FIXME: icons don't show
   const buttonHTMLstring_videoPage = `<button id='${buttonId}'><img src='${chrome.runtime.getURL(
     "icons/main-icon-48.png"
   )}'></button>`;

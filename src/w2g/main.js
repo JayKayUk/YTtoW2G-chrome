@@ -35,7 +35,14 @@ function getScriptCode(message) {
 
 function addVideoToPlaylist(message) {
   const code = getScriptCode(message);
-  runScriptElement(code);
+  console.log(chrome.tabs);
+  // chrome.scripting.executeScript = {
+  //   target: {
+  //     tabId: chrome.tabs.id,
+  //   },
+  //   func: code,
+  // };
+  // runScriptElement(code);
 }
 
 chrome.runtime.onMessage.addListener(addVideoToPlaylist);

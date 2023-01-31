@@ -1,4 +1,4 @@
-# YTtoW2G-firefox
+# YTtoW2G-chrome
 
 Extension that adds a button to YouTube thumbnails and the video page, which sends YT videos to an open W2G session. If a W2G session isn't open, the extension will open w2g.tv page, but you still need to start a session.
 

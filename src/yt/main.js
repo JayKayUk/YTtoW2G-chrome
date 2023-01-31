@@ -53,7 +53,7 @@ observer.observe(observerTarget, observerOptions);
 
 addNotificationsContainer();
 
-browser.runtime.onMessage.addListener((message) => {
+chrome.runtime.onMessage.addListener((message) => {
   if (message === "W2G tab does not exist") {
     addNotification(
       "Opened a W2G tab. Make sure you open a room on W2G.",
@@ -80,7 +80,7 @@ function addButtonElement_thumbnails(videoTile) {
     return;
   }
 
-  const buttonHTMLstring = `<button id='YTtoW2G'><img src='${browser.runtime.getURL(
+  const buttonHTMLstring = `<button id='YTtoW2G'><img src='${chrome.runtime.getURL(
     "icons/main-icon-48.png"
   )}'></button>`;
   videoTile.insertAdjacentHTML("beforeend", buttonHTMLstring);
@@ -150,7 +150,7 @@ function addButtonElement_videoPage(buttonId) {
     "ytd-menu-renderer.ytd-watch-metadata > yt-button-shape:nth-child(4)"
   );
 
-  const buttonHTMLstring_videoPage = `<button id='${buttonId}'><img src='${browser.runtime.getURL(
+  const buttonHTMLstring_videoPage = `<button id='${buttonId}'><img src='${chrome.runtime.getURL(
     "icons/main-icon-48.png"
   )}'></button>`;
 
@@ -180,7 +180,7 @@ function sendMsgToBgScript(data) {
     return;
   }
 
-  browser.runtime.sendMessage({
+  chrome.runtime.sendMessage({
     url: data.videoURL,
     thumb: data.thumbnailSource,
     title: data.videoTitle,

@@ -38,4 +38,4 @@ function addVideoToPlaylist(message) {
   runScriptElement(code);
 }
 
-browser.runtime.onMessage.addListener(addVideoToPlaylist);
+chrome.runtime.onMessage.addListener(addVideoToPlaylist);

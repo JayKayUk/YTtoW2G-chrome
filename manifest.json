@@ -1,10 +1,6 @@
 {
   "author": "JayKayUk",
-  "background": {
-    "scripts": ["src/background-script.js"],
-    "persistent": false
-  },
-  "browser-action": {
+  "action": {
     "browser-style": true,
     "default-icons": {
       "16": "icons/main-icon-16.png",
@@ -13,10 +9,8 @@
     },
     "default-title": "YTtoW2G"
   },
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "jaykayuk@email.email"
-    }
+  "background": {
+    "service_worker": "background-script.js"
   },
   "content_scripts": [
     {
@@ -30,18 +24,20 @@
     }
   ],
   "description": "Adds a button which sends YT videos to open W2G session",
-  "developer": {
-    "name": "JayKayUk",
-    "url": "https://github.com/JayKayUk"
-  },
   "homepage_url": "https://github.com/JayKayUk/YTtoW2G-firefox",
   "icons": {
+    "16": "icons/main-icon-16.png",
+    "32": "icons/main-icon-32.png",
     "48": "icons/main-icon-48.png",
-    "96": "icons/main-icon-96.png"
+    "64": "icons/main-icon-64.png",
+    "96": "icons/main-icon-96.png",
+    "128": "icons/main-icon-128.png"
   },
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "YTtoW2G",
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "scripting"],
   "version": "1.0.0",
-  "web_accessible_resources": ["icons/main-icon-48.png"]
+  "web_accessible_resources": [
+    { "resources": ["icons/"], "matches": ["https://www.youtube.com/*"] }
+  ]
 }

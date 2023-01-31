@@ -1,0 +1,97 @@
+#YTtoW2G {
+  display: block;
+  padding: 0.3em;
+  position: absolute;
+  top: 0;
+  margin: 0.3em;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  border-radius: 0.3em;
+}
+
+#YTtoW2G:hover {
+  cursor: pointer;
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+#YTtoW2G img {
+  display: block;
+  height: 1.3em;
+  width: 1.3em;
+  margin: 0.1em;
+}
+
+#YTtoW2G-videoPage-dark {
+  padding: 0.5em;
+  margin-left: 0.6em;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 1000px;
+  cursor: pointer;
+}
+
+#YTtoW2G-videoPage-dark:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#YTtoW2G-videoPage-dark:active {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#YTtoW2G-videoPage-dark img {
+  display: block;
+  height: 1.3em;
+  width: 1.3em;
+  margin: 0.2em;
+}
+
+#YTtoW2G-videoPage-light {
+  padding: 0.5em;
+  margin-left: 0.6em;
+  background-color: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 1000px;
+  cursor: pointer;
+}
+
+#YTtoW2G-videoPage-light:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+#YTtoW2G-videoPage-light:active {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+#YTtoW2G-videoPage-light img {
+  display: block;
+  height: 1.3em;
+  width: 1.3em;
+  margin: 0.2em;
+}
+
+#YTtoW2G-notificationsContainer {
+  width: 100%;
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.YTtoW2G-notification {
+  color: white;
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  border-radius: 0.5em;
+  margin: 1em auto;
+  padding: 0.5em;
+  width: max-content;
+  max-width: 20em;
+  opacity: 100%;
+}
+
+.YTtoW2G-notification-remove {
+  transition: opacity 3s;
+  opacity: 0%;
+}

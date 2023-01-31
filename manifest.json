@@ -1,0 +1,47 @@
+{
+  "author": "JayKayUk",
+  "background": {
+    "scripts": ["src/background-script.js"],
+    "persistent": false
+  },
+  "browser-action": {
+    "browser-style": true,
+    "default-icons": {
+      "16": "icons/main-icon-16.png",
+      "32": "icons/main-icon-32.png",
+      "64": "icons/main-icon-64.png"
+    },
+    "default-title": "YTtoW2G"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "jaykayuk@email.email"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "css": ["src/yt/style.css"],
+      "js": ["src/yt/main.js"]
+    },
+    {
+      "matches": ["https://w2g.tv/*/room/*"],
+      "js": ["src/w2g/main.js"]
+    }
+  ],
+  "description": "Adds a button which sends YT videos to open W2G session",
+  "developer": {
+    "name": "JayKayUk",
+    "url": "https://github.com/JayKayUk"
+  },
+  "homepage_url": "https://github.com/JayKayUk/YTtoW2G-firefox",
+  "icons": {
+    "48": "icons/main-icon-48.png",
+    "96": "icons/main-icon-96.png"
+  },
+  "manifest_version": 2,
+  "name": "YTtoW2G",
+  "permissions": ["tabs"],
+  "version": "1.0.0",
+  "web_accessible_resources": ["icons/main-icon-48.png"]
+}

@@ -64,7 +64,7 @@ chrome.runtime.onMessage.addListener((messageFromYT) => {
 function sendMessageYT(notificationText) {
   chrome.tabs.query({ url: "https://www.youtube.com/*" }).then((YtTabs) => {
     for (let i = 0; i < YtTabs.length; i++) {
-      chrome.tabs.sendMessage(YtTw2gRbs[i].id, notificationText);
+      chrome.tabs.sendMessage(YtTabs[i].id, notificationText);
     }
   });
 }

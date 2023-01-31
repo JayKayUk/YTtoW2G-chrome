@@ -16,40 +16,43 @@ chrome.runtime.onMessage.addListener((message) => {
     let title = message.title;
     let thumb = message.thumb;
 
-    chrome.scripting.executeScript({
-      target: {
-        tabId: tabs[0].id,
-      },
-      args: [url, title, thumb],
-      func: function (url, title, thumb) {
-        // TODO: get room id and playlist id from the w2g page
-        // TODO: refactor everything
-        // TODO: check if host permissions are needed
-        fetch(
-          "https://api.w2g.tv/rooms/p7y3810cmowjl4rqwz/playlists/qwuawx921e3c99j0zgwyjuzn9ex22zzj/playlist_items/sync_update",
-          {
-            credentials: "include",
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body:
-              `{"add_items":[{"url":"` +
-              url +
-              `","title":"` +
-              title +
-              `","thumb":"` +
-              thumb +
-              `"}]}`,
-          }
-        ).then((fetchResponose) => {
-          if (!fetchResponose.ok) {
-            console.log("YTtoW2G: " + fetchResponose);
-          }
-        });
-      },
+    chrome.tabs.sendMessage(tabs[0].id, "get ids").then((response) => {
+      let playlistURL = response.playlistURL;
+      let roomURL = response.roomURL;
+
+      chrome.scripting.executeScript({
+        target: {
+          tabId: tabs[0].id,
+        },
+        args: [url, title, thumb, roomURL, playlistURL],
+        func: function (url, title, thumb, roomURL, playlistURL) {
+          // TODO: refactor everything
+          fetch(
+            `https://api.w2g.tv/rooms/${roomURL}/playlists/${playlistURL}/playlist_items/sync_update`,
+            {
+              credentials: "include",
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body:
+                `{"add_items":[{"url":"` +
+                url +
+                `","title":"` +
+                title +
+                `","thumb":"` +
+                thumb +
+                `"}]}`,
+            }
+          ).then((fetchResponose) => {
+            if (!fetchResponose.ok) {
+              console.log("YTtoW2G: " + fetchResponose);
+            }
+          });
+        },
+      });
+      sendMessageYT("Video added!");
     });
-    sendMessageYT("Video added!");
   });
 });
 

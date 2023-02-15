@@ -8,8 +8,8 @@ chrome.runtime.onMessage.addListener(
         .children[0].value.split("=")[1];
 
       const playlistURL = document.querySelector(
-        "select.w2g-input > option:nth-child(1)"
-      ).value;
+    "select.w2g-input > option:nth-child(1)"
+  ).value;
 
       sendResponseFunction({ playlistURL, roomURL });
     }
